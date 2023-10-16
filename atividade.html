@@ -1,0 +1,120 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Atividade de web</title>
+    </head>
+    <!-- ao selecionar uma opcao de estado, vai ocorrer um evento ONCHANGE. 
+    Esse evento deverá chamar uma função que: verifica o valor do select de estado. 
+    Dependendo do valor do selec de estado, a função ira preencher o selec de cidade com as opções de
+    cidade para o estado selecionado. -->
+
+    <body>
+
+        <header>
+            <span>CyberExpress</span>
+        </header>
+        <br>
+        <div class="formularios">
+        <select name="estado" id="estado" onchange="incluiCidade()">
+            <option value="">Selecione um Estado</option>
+            <option value="pb">Paraíba</option>
+            <option value="pe">Pernambuco</option>
+            <option value="al">Alagoas</option>
+        </select><br>
+        <select name="cidade" id="cidade">
+        </select><br><br>
+        <div id="Bairro">
+            <form>
+                <input type="text" name="bairro" value="informe seu bairro:" >
+                <button type="button" id="enviar">Enviar</button>
+            </form>
+        </div>
+        <div id="campo de texto">
+       <input type="text" name="Bairro">
+       <button>Excluir</button>
+       <button>Editar</button>
+       </div><br>
+
+       <div id="Estado e cidade">
+        <input type="text" name="selects">
+        <button>Excluir</button>
+        <button>Editar</button>
+        </div>
+        
+        <script>
+            
+
+        var input= document.createElement("input");
+        input.type= "text";
+        input.placeholder= "Informe seu bairro: ";
+        input.name= "Bairro";
+        console.log(input);
+        div.appendChild(input);
+
+            function incluiCidade() {
+                var estado = document.getElementById("estado");
+                var sigla = estado.value;
+
+                var cidade = document.getElementById("cidade")
+
+                for (var i = cidade.children.length - 1; i >= 0; i--) {
+                    cidade.removeChild(cidade.children[i])
+                }
+
+                var op0 = document.createElement("option");
+                op0.innerHTML = "Selecione uma cidade";
+                cidade.appendChild(op0);
+
+                switch (sigla) {
+
+                    case "pb":
+
+                        var op1 = document.createElement("option");
+                        op1.value = "jp";
+                        op1.innerHTML = "João Pessoa";
+                        cidade.appendChild(op1);
+
+                        var op2 = document.createElement("option");
+                        op2.value = "pa";
+                        op2.innerHTML = "Patos";
+                        cidade.appendChild(op2);
+
+                        break;
+
+                    case "pe":
+
+                        var op1 = document.createElement("option");
+                        op1.value = "re";
+                        op1.innerHTML = "Recife";
+                        cidade.appendChild(op1);
+
+                        var op2 = document.createElement("option");
+                        op2.value = "ol";
+                        op2.innerHTML = "Olinda";
+                        cidade.appendChild(op2);
+
+                        break;
+
+                    case "al":
+
+                        var op1 = document.createElement("option");
+                        op1.value = "mr";
+                        op1.innerHTML = "Maragogi";
+                        cidade.appendChild(op1);
+
+                        var op2 = document.createElement("option");
+                        op2.value = "ma";
+                        op2.innerHTML = "Maceió";
+                        cidade.appendChild(op2);
+
+                        break;
+
+                }
+            }    
+
+        </script>
+
+    </body>
+
+    </html>
